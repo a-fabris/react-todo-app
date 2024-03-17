@@ -15,7 +15,9 @@ const TodoApp = () => {
       isDone: false,
     };
 
-    setItems([...items, item]);
+    items.unshift(item);
+
+    setItems([...items]);
   };
 
   const handleOnItemClicked = (item, isChecked) => {
@@ -27,10 +29,13 @@ const TodoApp = () => {
   };
 
   return (
-    <>
+    <div className="m-auto py-10 p-8 w-3/4">
+      <h1 className="text-4xl text-center font-bold text-[#dbdbdb]">
+        Hello todo list!
+      </h1>
       <AddItem onAddItem={handleOnAddItem} />
       <TodoItems items={items} onItemClicked={handleOnItemClicked} />
-    </>
+    </div>
   );
 };
 
